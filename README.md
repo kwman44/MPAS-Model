@@ -1,3 +1,53 @@
+AMPS Notes
+==========
+
+Changes for AMPS:
+
+Call mynn_bl_driver with psfc_hyd_p rather than psfc_p.  Without this
+change, our high vertical resolution near the surface seems to trigger
+NaNs now and then.
+
+Use a constant snow heat capacity (older value still in the code, but
+commented out in the official version) rather than the computed value.
+This (combined with using config_noahmp_iopt_tksno=3) seems to
+mitigate (though not eliminate) the extreme cold biases we would see
+episodically over the Ross Ice Shelf.
+
+Add a wait loop for reading lateral boundary conditions.  This is
+vital to our real-time regional run, where the boundary condition
+files are created on the fly from a real-time global MPAS forecast.
+The wait loop allows some extra time (i.e., in case real-time
+processes are delayed) for creating the LBC files, rather than
+immediately stopping the forecast if LBC files are not available.
+
+Added AMPS diagnostics.  Currently, only the ceiling product (ported
+from the AMPS version of RIP4) is created.
+
+---
+
+For building the scotch library (adapt directories and version numbers
+as appropriate):
+>```
+> export SCOTCH=/glade/work/ampsrt/derecho/src-8.4.2/scotch
+>
+> git clone https://gitlab.inria.fr/scotch/scotch.git scotch-7.0.16
+>
+> cd scotch-7.0.16
+>
+> cmake -DCMAKE_INSTALL_PREFIX=${SCOTCH} \
+>    -DBUILD_SHARED_LIBS=ON \
+>    -DINTSIZE:STRING=32 \
+>    -DIDXSIZE:STRING=32 \
+>    -DBISON_EXECUTABLE=/glade/u/apps/derecho/25.10/opt/view/bin/bison \
+>    -DFLEX_EXECUTABLE=/glade/u/apps/derecho/25.10/opt/view/bin/flex
+>
+> make -j 4
+>
+> make test
+>
+> make install
+>```
+
 MPAS-v8.4.2
 ====
 
