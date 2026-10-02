@@ -79,6 +79,18 @@ module mpas_atm_boundaries
 
         use mpas_constants, only : rvord
         use mpas_stream_manager, only : mpas_stream_mgr_read
+#define _AMPS_
+#ifdef _AMPS_
+        use mpas_stream_manager, only : mpas_stream_mgr_ringing_alarms
+        use mpas_stream_manager, only : mpas_get_stream_filename
+        use mpas_stream_manager, only : mpas_stream_mgr_get_stream_interval
+        use mpas_derived_types, only : MPAS_STREAM_INPUT
+        use mpas_derived_types, only : MPAS_TimeInterval_type
+        use mpas_timekeeping, only : mpas_get_timeInterval
+        use mpas_timekeeping, only : mpas_get_clock_time
+        use mpas_timekeeping, only : operator(+)
+#endif
+
         use mpas_log, only : mpas_log_write
         use mpas_derived_types, only : MPAS_STREAM_MGR_NOERR, MPAS_LOG_ERR
         use mpas_timekeeping, only : mpas_get_time
@@ -134,7 +146,13 @@ module mpas_atm_boundaries
         character(len=StrKIND) :: read_time
         integer :: iEdge, iCell, k, j
         integer :: cell1, cell2
-
+#ifdef _AMPS_
+        character(len=StrKIND) :: lbc_filename
+        integer :: lbc_wait_count
+        integer :: lbc_wait_count_limit
+        integer :: lbc_wait_sleeptime
+        logical :: lbc_file_exists
+#endif
 
         ierr = 0
 
@@ -151,6 +169,30 @@ module mpas_atm_boundaries
                ierr = 1
             end if
         else
+#ifdef _AMPS_
+            if (MPAS_stream_mgr_ringing_alarms(streamManager, streamID='lbc_in', direction=MPAS_STREAM_INPUT, ierr=ierr)) then
+                currTime = mpas_get_clock_time(clock, MPAS_NOW, ierr=ierr)
+                lbc_interval = MPAS_stream_mgr_get_stream_interval(streamManager, 'lbc_in', MPAS_STREAM_INPUT, ierr)
+                currTime = currTime + lbc_interval
+                call mpas_get_time(currTime, dateTimeString=read_time)
+                call mpas_get_stream_filename(streamManager, 'lbc_in', when=trim(read_time), filename=lbc_filename)
+                call mpas_log_write('****** Time to read another LBC file ('//trim(lbc_filename)//') ******')
+                lbc_wait_count_limit = 240
+                lbc_wait_sleeptime = 30
+                do lbc_wait_count = 1, lbc_wait_count_limit
+                    inquire(file=trim(lbc_filename), exist=lbc_file_exists)
+                    if (lbc_file_exists) then
+                        exit
+                    endif
+                    call mpas_log_write('****** ($i/$i) LBC file not found; wait a bit. ('//trim(lbc_filename)//') ******', &
+                         &              intArgs=(/lbc_wait_count, lbc_wait_count_limit/))
+                    call sleep(lbc_wait_sleeptime)
+                enddo
+                if (.not. lbc_file_exists) then
+                    call mpas_log_write('****** Give up waiting for LBC file: ('//trim(lbc_filename)//') ******')
+                endif
+            end if
+#endif
             call mpas_pool_shift_time_levels(lbc)
             call MPAS_stream_mgr_read(streamManager, streamID='lbc_in', timeLevel=2, whence=MPAS_STREAM_EARLIEST_STRICTLY_AFTER, &
                                       actualWhen=read_time, ierr=ierr)
