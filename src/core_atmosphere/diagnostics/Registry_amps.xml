@@ -1,0 +1,11 @@
+<!-- ******************************* -->
+<!-- crtm diagnostics                -->
+<!-- ******************************* -->
+
+<var_struct name="diag" time_levs="1">
+
+        <var name="ceiling_RIP4"                   type="real"     dimensions="nCells Time" units="m"
+             description="Cloud ceiling (AGL) according to the RIP4 algorithm"/>
+        
+</var_struct>
+

@@ -13,6 +13,9 @@
 <!-- convective diagnostics -->
 #include "Registry_convective.xml"
 
+<!-- AMPS diagnostics -->
+#include "Registry_amps.xml"
+
 <!-- PV diagnostics -->
 #include "Registry_pv.xml"
 

@@ -1146,6 +1146,10 @@
 			<var name="wind_speed_level1_max"/>
                         <!-- End convective diagnostics defined in diagnostics/Registry_convective.xml -->
 
+                        <!-- Begin AMPS diagnostics defined in diagnostics/Registry_amps.xml -->
+                        <var name="ceiling_RIP4"/>
+                        <!-- END AMPS diagnostics defined in diagnostics/Registry_amps.xml -->
+
 #ifdef DO_PHYSICS
 			<var name="t_oml"/>
 			<var name="t_oml_initial"/>

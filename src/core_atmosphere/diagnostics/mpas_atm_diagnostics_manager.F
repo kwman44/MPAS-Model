@@ -36,6 +36,7 @@ module mpas_atm_diagnostics_manager
         use mpas_isobaric_diagnostics, only : isobaric_diagnostics_setup
         use mpas_cloud_diagnostics, only : cloud_diagnostics_setup
         use mpas_convective_diagnostics, only : convective_diagnostics_setup
+        use mpas_amps_diagnostics, only : amps_diagnostics_setup
         use mpas_pv_diagnostics, only : pv_diagnostics_setup
         use mpas_soundings, only : soundings_setup
 
@@ -57,6 +58,7 @@ module mpas_atm_diagnostics_manager
         call isobaric_diagnostics_setup(structs, clock)
         call cloud_diagnostics_setup(structs, clock)
         call convective_diagnostics_setup(structs, clock)
+        call amps_diagnostics_setup(structs, clock)
         call pv_diagnostics_setup(structs, clock)
         call soundings_setup(configs, structs, clock, dminfo)
 
@@ -103,6 +105,7 @@ module mpas_atm_diagnostics_manager
         use mpas_isobaric_diagnostics, only : isobaric_diagnostics_compute
         use mpas_cloud_diagnostics, only : cloud_diagnostics_compute
         use mpas_convective_diagnostics, only : convective_diagnostics_compute
+        use mpas_amps_diagnostics, only : amps_diagnostics_compute
         use mpas_pv_diagnostics, only : pv_diagnostics_compute
         use mpas_soundings, only : soundings_compute
 
@@ -113,6 +116,7 @@ module mpas_atm_diagnostics_manager
         call isobaric_diagnostics_compute()
         call cloud_diagnostics_compute()
         call convective_diagnostics_compute()
+        call amps_diagnostics_compute()
         call pv_diagnostics_compute()
         call soundings_compute()
 
