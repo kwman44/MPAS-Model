@@ -57,8 +57,13 @@ contains
     ! thermal capacity of snow
     do LoopInd = NumSnowLayerNeg+1, 0
        SnowDensBulk(LoopInd)     = (SnowIce(LoopInd) + SnowLiqWater(LoopInd)) / ThicknessSnowSoilLayer(LoopInd)
+#define _AMPS_
+#ifdef _AMPS_
+       HeatCapacVolSnow(LoopInd) = 0.525e06  ! constant
+#else       
        HeatCapacVolSnow(LoopInd) = ConstHeatCapacIce*SnowIceVol(LoopInd) + ConstHeatCapacWater*SnowLiqWaterVol(LoopInd)
       !HeatCapacVolSnow(LoopInd) = 0.525e06  ! constant
+#endif
     enddo
 
     ! thermal conductivity of snow
