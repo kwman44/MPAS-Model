@@ -906,7 +906,12 @@
                   f_qoz      = f_qoz        , f_nc       = f_nc         , f_ni        = f_ni            , &
                   f_nifa     = f_nifa       , f_nwfa     = f_nwfa       , f_nbca      = f_nbca          , &
                   icloud_bl  = icloud_bl    , delt       = dt_pbl       , dx          = dx_p            , &
+#define _AMPS_
+#ifdef _AMPS_
+                  xland      = xland_p      , ps         = psfc_hyd_p   , ts          = tsk_p           , &
+#else
                   xland      = xland_p      , ps         = psfc_p       , ts          = tsk_p           , &
+#endif
                   qsfc       = qsfc_p       , ust        = ust_p        , ch          = ch_p            , &
                   hfx        = hfx_p        , qfx        = qfx_p        , rmol        = rmol_p          , &
                   wspd       = wspd_p       , znt        = znt_p        , uoce        = uoce_p          , &
