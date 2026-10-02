@@ -1,5 +1,5 @@
 This document summarizes the steps that are required to add a new diagnostic
-to MPAS-Atmosphere. The "tempate" files may be used as a guide for what is
+to MPAS-Atmosphere. The "template" files may be used as a guide for what is
 generally required to implement a diagnostic.
 
 1) Define namelist options, dimensions, packages, and fields needed by 
