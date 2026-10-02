@@ -1,0 +1,77 @@
+<!-- ******************************* -->
+<!-- crtm diagnostics                -->
+<!-- ******************************* -->
+
+<var_struct name="diag" time_levs="1">
+
+        <var name="goes18_radiance_channel_01"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM GOES18 radiance channel 01"/>
+        <var name="goes18_radiance_channel_02"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM GOES18 radiance channel 02"/>
+        <var name="goes18_brightnessT_channel_08"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM GOES18 brightness temperature channel 08"/>
+        <var name="goes18_brightnessT_channel_09"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM GOES18 brightness temperature channel 09"/>
+        <var name="goes18_brightnessT_channel_10"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM GOES18 brightness temperature channel 10"/>
+
+
+        <var name="goes19_radiance_channel_01"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM GOES19 radiance channel 01"/>
+        <var name="goes19_radiance_channel_02"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM GOES19 radiance channel 02"/>
+        <var name="goes19_brightnessT_channel_08"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM GOES19 brightness temperature channel 08"/>
+        <var name="goes19_brightnessT_channel_09"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM GOES19 brightness temperature channel 09"/>
+        <var name="goes19_brightnessT_channel_10"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM GOES19 brightness temperature channel 10"/>
+
+        <var name="himawari9_radiance_channel_01"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM HIMAWARI9 radiance channel 01"/>
+        <var name="himawari9_radiance_channel_02"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM HIMAWARI9 radiance channel 02"/>
+        <var name="himawari9_radiance_channel_03"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM HIMAWARI9 radiance channel 03"/>
+        <var name="himawari9_brightnessT_channel_08"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM HIMAWARI9 brightness temperature channel 08"/>
+        <var name="himawari9_brightnessT_channel_09"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM HIMAWARI9 brightness temperature channel 09"/>
+        <var name="himawari9_brightnessT_channel_10"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM HIMAWARI9 brightness temperature channel 10"/>
+        
+        <var name="meteosat9_radiance_channel_01"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM METEOSAT9 radiance channel 01"/>
+        <var name="meteosat9_radiance_channel_02"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM METEOSAT9 radiance channel 02"/>
+        <var name="meteosat9_radiance_channel_12"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM METEOSAT9 radiance channel 12"/>
+        <var name="meteosat9_brightnessT_channel_05"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM METEOSAT9 brightness temperature channel 05"/>
+        <var name="meteosat9_brightnessT_channel_06"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM METEOSAT9 brightness temperature channel 06"/>
+
+        <var name="meteosat10_radiance_channel_01"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM METEOSAT10 radiance channel 01"/>
+        <var name="meteosat10_radiance_channel_02"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM METEOSAT10 radiance channel 02"/>
+        <var name="meteosat10_radiance_channel_12"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM METEOSAT10 radiance channel 12"/>
+        <var name="meteosat10_brightnessT_channel_05"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM METEOSAT10 brightness temperature channel 05"/>
+        <var name="meteosat10_brightnessT_channel_06"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM METEOSAT10 brightness temperature channel 06"/>
+        
+        <var name="meteosat11_radiance_channel_01"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM METEOSAT11 radiance channel 01"/>
+        <var name="meteosat11_radiance_channel_02"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM METEOSAT11 radiance channel 02"/>
+        <var name="meteosat11_radiance_channel_12"                   type="real"     dimensions="nCells Time" units="mW m^{-2} sr^{-1} cm"
+             description="CRTM METEOSAT11 radiance channel 12"/>
+        <var name="meteosat11_brightnessT_channel_05"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM METEOSAT11 brightness temperature channel 05"/>
+        <var name="meteosat11_brightnessT_channel_06"                   type="real"     dimensions="nCells Time" units="K"
+             description="CRTM METEOSAT11 brightness temperature channel 06"/>
+
+</var_struct>
+

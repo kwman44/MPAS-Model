@@ -36,6 +36,7 @@ module mpas_atm_diagnostics_manager
         use mpas_isobaric_diagnostics, only : isobaric_diagnostics_setup
         use mpas_cloud_diagnostics, only : cloud_diagnostics_setup
         use mpas_convective_diagnostics, only : convective_diagnostics_setup
+        use mpas_crtm_diagnostics, only : crtm_diagnostics_setup
         use mpas_pv_diagnostics, only : pv_diagnostics_setup
         use mpas_soundings, only : soundings_setup
 
@@ -57,6 +58,7 @@ module mpas_atm_diagnostics_manager
         call isobaric_diagnostics_setup(structs, clock)
         call cloud_diagnostics_setup(structs, clock)
         call convective_diagnostics_setup(structs, clock)
+        call crtm_diagnostics_setup(configs, structs, clock)
         call pv_diagnostics_setup(structs, clock)
         call soundings_setup(configs, structs, clock, dminfo)
 
@@ -77,12 +79,14 @@ module mpas_atm_diagnostics_manager
 
         use mpas_diagnostic_template, only : diagnostic_template_update
         use mpas_convective_diagnostics, only : convective_diagnostics_update
+        ! use mpas_crtm_diagnostics, only : crtm_diagnostics_update
 
         implicit none
 
 
         call diagnostic_template_update()
         call convective_diagnostics_update()
+        ! call crtm_diagnostics_update()
 
     end subroutine mpas_atm_diag_update
 
@@ -103,6 +107,7 @@ module mpas_atm_diagnostics_manager
         use mpas_isobaric_diagnostics, only : isobaric_diagnostics_compute
         use mpas_cloud_diagnostics, only : cloud_diagnostics_compute
         use mpas_convective_diagnostics, only : convective_diagnostics_compute
+        use mpas_crtm_diagnostics, only : crtm_diagnostics_compute
         use mpas_pv_diagnostics, only : pv_diagnostics_compute
         use mpas_soundings, only : soundings_compute
 
@@ -113,6 +118,7 @@ module mpas_atm_diagnostics_manager
         call isobaric_diagnostics_compute()
         call cloud_diagnostics_compute()
         call convective_diagnostics_compute()
+        call crtm_diagnostics_compute()
         call pv_diagnostics_compute()
         call soundings_compute()
 
@@ -133,12 +139,14 @@ module mpas_atm_diagnostics_manager
 
         use mpas_diagnostic_template, only : diagnostic_template_reset
         use mpas_convective_diagnostics, only : convective_diagnostics_reset
+        ! use mpas_crtm_diagnostics, only : crtm_diagnostics_reset
 
         implicit none
 
 
         call diagnostic_template_reset()
         call convective_diagnostics_reset()
+        ! call crtm_diagnostics_reset()
 
     end subroutine mpas_atm_diag_reset
 

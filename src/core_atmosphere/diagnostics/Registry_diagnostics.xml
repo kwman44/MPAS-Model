@@ -13,6 +13,9 @@
 <!-- convective diagnostics -->
 #include "Registry_convective.xml"
 
+<!-- crtm diagnostics -->
+#include "Registry_crtm.xml"
+
 <!-- PV diagnostics -->
 #include "Registry_pv.xml"
 

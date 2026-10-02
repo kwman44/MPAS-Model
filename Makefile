@@ -671,6 +671,8 @@ intel:   # BUILDTARGET Intel oneAPI Fortran, C, and C++ compiler suite
 	"CFLAGS_DEBUG = -g -traceback" \
 	"CXXFLAGS_DEBUG = -g -traceback" \
 	"LDFLAGS_DEBUG = -g -traceback" \
+	"MPAS_EXTERNAL_LIBS = -L${CRTM}/lib -lcrtm -lnetcdff" \
+	"MPAS_EXTERNAL_INCLUDES = -I${CRTM}/module/crtm/IntelLLVM/2025.2.1" \
 	"FFLAGS_OMP = -qopenmp" \
 	"CFLAGS_OMP = -qopenmp" \
 	"PICFLAG = -fpic" \

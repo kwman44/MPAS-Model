@@ -1146,6 +1146,46 @@
 			<var name="wind_speed_level1_max"/>
                         <!-- End convective diagnostics defined in diagnostics/Registry_convective.xml -->
 
+                        <!-- Begin crtm diagnostics defined in diagnostics/Registry_crtm.xml -->
+                        <var name="goes18_radiance_channel_01"/>
+                        <var name="goes18_radiance_channel_02"/>
+                        <var name="goes18_brightnessT_channel_08"/>
+                        <var name="goes18_brightnessT_channel_09"/>
+                        <var name="goes18_brightnessT_channel_10"/>
+
+                        <var name="goes19_radiance_channel_01"/>
+                        <var name="goes19_radiance_channel_02"/>
+                        <var name="goes19_brightnessT_channel_08"/>
+                        <var name="goes19_brightnessT_channel_09"/>
+                        <var name="goes19_brightnessT_channel_10"/>
+
+                        <var name="himawari9_radiance_channel_01"/>
+                        <var name="himawari9_radiance_channel_02"/>
+                        <var name="himawari9_radiance_channel_03"/>
+                        <var name="himawari9_brightnessT_channel_08"/>
+                        <var name="himawari9_brightnessT_channel_09"/>
+                        <var name="himawari9_brightnessT_channel_10"/>
+
+                        <var name="meteosat9_radiance_channel_01"/>
+                        <var name="meteosat9_radiance_channel_02"/>
+                        <var name="meteosat9_radiance_channel_12"/>
+                        <var name="meteosat9_brightnessT_channel_05"/>
+                        <var name="meteosat9_brightnessT_channel_06"/>
+
+                        <var name="meteosat10_radiance_channel_01"/>
+                        <var name="meteosat10_radiance_channel_02"/>
+                        <var name="meteosat10_radiance_channel_12"/>
+                        <var name="meteosat10_brightnessT_channel_05"/>
+                        <var name="meteosat10_brightnessT_channel_06"/>
+
+                        <var name="meteosat11_radiance_channel_01"/>
+                        <var name="meteosat11_radiance_channel_02"/>
+                        <var name="meteosat11_radiance_channel_12"/>
+                        <var name="meteosat11_brightnessT_channel_05"/>
+                        <var name="meteosat11_brightnessT_channel_06"/>
+                        <!-- End crtm diagnostics defined in diagnostics/Registry_crtm.xml -->
+
+
 #ifdef DO_PHYSICS
 			<var name="t_oml"/>
 			<var name="t_oml_initial"/>
